@@ -1,12 +1,38 @@
-// Copyright (c) 2009-2010 Techinox Information Technologies (http://www.techinox.com)
-// Techinox Commercial License
-//
-// @author Armagan Amcalar <armagan@tart.com.tr>
+/**
+ * Created by JetBrains PhpStorm.
+ * User: Memo
+ * Date: 05.07.2011
+ * Time: 11:06
+ * To change this template use File | Settings | File Templates.
+ */
 
 var DirectMessageModel = function() {
 
-};
-
-DirectMessageModel.prototype.createDirectMessage = function(from, to, body){
-    
 }
+
+DirectMessageModel.prototype.sendDirectMessage = function (from,to,body) {
+    var directMessage = new DirectMessage(from.id, to.id, body);
+    localStorage.setObject(directMessage.id,directMessage);
+    };
+
+DirectMessageModel.prototype.getInboxByUserId = function (userId) {
+    var array = [];
+    for(var directMessage in localStorage) {
+     directMessage = localStorage.getObject(directMessage);
+        if(directMessage && directMessage.to.user.id && directMessage.to.user.id==userId){
+        array.push(directMessage);
+        }
+    }
+    return array;
+    };
+
+DirectMessageModel.prototype.getSentByUserId = function (userId) {
+    var array = [];
+    for(var directMessage in localStorage) {
+     directMessage = localStorage.getObject(directMessage);
+        if(directMessage && directMessage.from.user.id && directMessage.from.user.id==userId){
+        array.push(directMessage);
+        }
+    }
+    return array;
+    };

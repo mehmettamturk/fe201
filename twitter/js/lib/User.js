@@ -5,9 +5,20 @@
  * Time: 11:25
  * To change this template use File | Settings | File Templates.
  */
+goog.provide('twitter.User');
+goog.require('tart.getUId');
+
+twitter.User = function (username,password) {
+ this.id=tart.getUId();
+ this.username = username;
+ this.password = password;
+ };
+
+/*
 var User = function (username,password) {
  this.id=tart.getUId();
  this.username = username;
  this.password = password;
  };
 
+*/

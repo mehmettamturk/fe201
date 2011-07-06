@@ -4,13 +4,52 @@
     <title>FE201</title>
     <script type="text/javascript" src="js/third_party/jquery-1.6.2.js"></script>
     <script type="text/javascript" src="js/third_party/tart.js"></script>
-    <script type="text/javascript">
-        var session = localStorage.getItem("session"),
-                user = userModel.getUserById(session.userId);
+    <script type="text/javascript" src="js/lib/User.js"></script>
+    <script type="text/javascript" src="js/lib/Tweet.js"></script>
+    <script type="text/javascript" src="js/lib/Session.js"></script>
+    <script type="text/javascript" src="js/lib/DirectMessage.js"></script>
+    <script type="text/javascript" src="js/lib/Follow.js"></script>
+    <script type="text/javascript" src="js/lib/Profile.js"></script>
+    <script type="text/javascript" src="js/model/UserModel.js"></script>
+    <script type="text/javascript" src="js/model/TweetModel.js"></script>
+    <script type="text/javascript" src="js/model/ProfileModel.js"></script>
+    <script type="text/javascript" src="js/model/FollowManager.js"></script>
+    <script type="text/javascript" src="js/model/DirectMessageModel.js"></script>
 
-    </script>
+
+<script type="text/javascript">
+
+var log = function(username,password) {
+        var userModel = new UserModel();
+        //var username = document.getElementById('user').value;
+        //var password = document.getElementById('pass').value;
+        var login = userModel.login(username,password);
+
+        if(!login) { alert("you are not a member"); }
+        else     { alert("login");
+                    window.location.reload();  }
+     }
+
+$(document).ready(function(){
+    var $login = $("<form name='login'>");
+    var $username = $("<input type='text' id='user'>");
+    var $password = $("<input type='password' id='pass'>");
+    var $button = $("<button style='height: 30px; width: 100px; color: #cd853f;'>");
+    $button.html('Submit');
+    $button.click(function(){
+        log($username.val(),$password.val());
+    })
+    $login.append($username).append($password);
+
+    $("body").append($login).append($button);
+});
+</script>
+
 </head>
 <body>
+<h1>Twitter</h1>
+<h3>Login</h3>
+
 
 </body>
 </html>

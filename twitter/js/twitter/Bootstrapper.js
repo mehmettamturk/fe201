@@ -4,8 +4,6 @@ goog.require('tart.storage.Storage');
 goog.provide('twitter.Bootstrapper');
 
 
-var storage;
-
 /**
  * Bootstrapper of the example application.
  * @constructor

@@ -10,9 +10,9 @@ goog.provide('twitter.Bootstrapper');
  */
 twitter.Bootstrapper = function() {
 
-    storage = new tart.storage.Storage();
+    twitter.storage = new tart.storage.Storage();
+
     new twitter.Application();
 
 };
-
 goog.exportSymbol('twitter.Bootstrapper', twitter.Bootstrapper);

@@ -30,7 +30,7 @@ var log = function(username,password) {
 };
 
 $(document).ready(function(){
-    var session = storage.get("session");
+    var session = twitter.storage.get("session");
     if(!session) {
         var $login = $("<form name='login'>");
         var $username = $("<input type='text' id='user'>");
